@@ -6,6 +6,7 @@ return {
             "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
         },
+        lazy = false,
         config = function()
             require("neo-tree").setup({
                 enable_opened_markers = true,
