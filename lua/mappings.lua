@@ -7,7 +7,7 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr> <esc>")
+map({ "n", "i", "v" }, "<C-s>", "<esc><cmd>w<cr>", { desc = "Save file" })
 
 -- Lazy Keybind
 
@@ -92,5 +92,10 @@ map("t", "<C-l>", "<C-\\><C-n><C-w><C-l>", {desc = "Navigate windows to the righ
 
 -- Change buffer like tabs
 
-map("n", "<S-l>", ":bnext<CR>", {desc = "Next tab"})
-map("n", "<S-h>", ":bprevious<CR>", {desc = "Previous tab"})
+map("n", "<S-l>", "<cmd>bnext<CR>", {desc = "Next tab"})
+map("n", "<S-h>", "<cmd>bprevious<CR>", {desc = "Previous tab"})
+
+-- Comment lines
+
+map("n", "<C-/>", "<S-V>gcc", {desc = "Comment line"})
+map("v", "<C-/>", "gcc", {desc = "Comment line"})
