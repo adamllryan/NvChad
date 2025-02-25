@@ -98,8 +98,8 @@ local window_keys = {
 }
 
 for key, desc in pairs(window_keys) do
-  map("n", key, "<C-w><C-" .. key .. ">", { desc = desc })
-  map("t", key, "<C-\\><C-n><C-w><C-" .. key .. ">", { desc = desc })
+  map("n", key, "<C-w>" .. key, { desc = desc })
+  map("t", key, "<C-\\><C-n><C-w>" .. key, { desc = desc })
 end
 
 -- Change buffer like tabs
