@@ -1,15 +1,21 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
+    c = { "clang-format" }, -- Format C code
+    cpp = { "clang-format" }, -- Format C++ code
+    python = { "black" }, -- Format Python
+    javascript = { "prettier" }, -- Uncomment if you want Prettier for JS
+    typescript = { "prettier" },
+    json = { "jq" },
+    yaml = { "prettier" },
+    markdown = { "prettier" },
+    sh = { "shfmt" },
   },
 
-  -- format_on_save = {
-  --   -- These options will be passed to conform.format()
-  --   timeout_ms = 500,
-  --   lsp_fallback = true,
-  -- },
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_fallback = true,
+  },
 }
 
 return options
