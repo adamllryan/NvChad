@@ -79,7 +79,7 @@ map("n", "<C-->", function()
   change_scale_factor(0.9)
 end, { desc = "Decrease scale factor" })
 
--- Neotree keybinds
+-- File Explorer keybinds
 
 -- map({ "n", "v" }, "<tab>", "<cmd>Neotree toggle left last<cr>", {desc = "Toggle file explorer"})
 map({ "n", "v" }, "<tab>", "<cmd>lua Snacks.explorer()<cr>", { desc = "Toggle file explorer" })
@@ -90,24 +90,28 @@ map("n", "t", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Toggle termi
 map("t", "<esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 map({ "t", "n" }, "<C-\\>", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle terminal" })
 
--- Navigate windows
+local window_keys = {
+  ["<C-h>"] = "Navigate windows to the left",
+  ["<C-j>"] = "Navigate windows down",
+  ["<C-k>"] = "Navigate windows up",
+  ["<C-l>"] = "Navigate windows to the right",
+}
 
-map("n", "<C-h>", "<C-w><C-h>", { desc = "Navigate windows to the left" })
-map("n", "<C-j>", "<C-w><C-j>", { desc = "Navigate windows down" })
-map("n", "<C-k>", "<C-w><C-k>", { desc = "Navigate windows up" })
-map("n", "<C-l>", "<C-w><C-l>", { desc = "Navigate windows to the right" })
-
--- Terminal Jump to window
-
-map("t", "<C-h>", "<C-\\><C-n><C-w><C-h>", { desc = "Navigate windows to the left" })
-map("t", "<C-j>", "<C-\\><C-n><C-w><C-j>", { desc = "Navigate windows down" })
-map("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", { desc = "Navigate windows up" })
-map("t", "<C-l>", "<C-\\><C-n><C-w><C-l>", { desc = "Navigate windows to the right" })
+for key, desc in pairs(window_keys) do
+  map("n", key, "<C-w><C-" .. key .. ">", { desc = desc })
+  map("t", key, "<C-\\><C-n><C-w><C-" .. key .. ">", { desc = desc })
+end
 
 -- Change buffer like tabs
 
-map("n", "<S-l>", "<cmd>bnext<CR>", { desc = "Next tab" })
-map("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Previous tab" })
+local buffer_keys = {
+  l = { cmd = "<cmd>bnext<CR>", desc = "Next buffer" },
+  h = { cmd = "<cmd>bprevious<CR>", desc = "Previous buffer" },
+}
+
+for key, mapping in pairs(buffer_keys) do
+  map("n", "<S-" .. key .. ">", mapping.cmd, { desc = mapping.desc })
+end
 
 -- Comment lines
 
