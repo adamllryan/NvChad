@@ -21,7 +21,7 @@ export C_INCLUDE_PATH="/opt/homebrew/include:$C_INCLUDE_PATH"
 export TERM="xterm-256color"
 
 ### Minimal UI / UX Enhancements ###
-ZSH_THEME="agnoster"  # Disable theme for faster load, or use "robbyrussell" for minimalism
+ZSH_THEME="fishy"  # Disable theme for faster load, or use "robbyrussell" for minimalism
 
 # Disable Oh My Zsh splash/branding
 DISABLE_AUTO_TITLE="true"
