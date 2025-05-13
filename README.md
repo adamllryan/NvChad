@@ -1,9 +1,3 @@
-**This repo is supposed to used as config by NvChad users!**
+My dotfiles for Zsh and Neovim, forked from the NvChad starter configuration. 
 
-- The main nvchad repo (NvChad/NvChad) is used as a plugin by this repo.
-- So you just import its modules , like `require "nvchad.options" , require "nvchad.mappings"`
-- So you can delete the .git from this repo ( when you clone it locally ) or fork it :)
-
-# Credits
-
-1. Lazyvim starter https://github.com/LazyVim/starter as nvchad's starter was inspired by Lazyvim's . It made a lot of things easier!
+Aim is to be barebones and fast while providing strong autocompletion and common IDE highlights. 
